@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --progress --colors"
   },
   "author": "Brittany and Joseph",
   "license": "ISC",
@@ -27,7 +28,6 @@
     "css-loader": "^0.25.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
-    "tapable": "^0.2.4",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   }

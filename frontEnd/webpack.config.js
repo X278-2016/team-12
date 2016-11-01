@@ -8,7 +8,7 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
   },
 
   module: {
