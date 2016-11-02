@@ -1,7 +1,6 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
-export class UserInput extends React.Component {
+export default class UserInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '', userData: '' };
@@ -13,16 +12,16 @@ export class UserInput extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit() {
     this.setState({ userData: 'Loading' });
-    let request = new XMLHttpRequest();
-    let root = 'https://jsonplaceholder.typicode.com';
-    let _this = this;
-    request.addEventListener('load', function() {
-      let data = JSON.parse(request.responseText);
-      _this.setState({ value: _this.state.value, userData: data });
+    const request = new XMLHttpRequest();
+    const root = 'https://jsonplaceholder.typicode.com';
+    const react = this;
+    request.addEventListener('load', () => {
+      const data = JSON.parse(request.responseText);
+      react.setState({ value: react.state.value, userData: data });
     });
-    request.open('GET', root + '/posts/1');
+    request.open('GET', `${root}/posts/1`);
     request.send();
   }
 
@@ -31,15 +30,15 @@ export class UserInput extends React.Component {
       <div>
         <h3>User Data</h3>
         <input
-          type ='text'
-          placeholder ='Enter a username'
-          value = { this.state.value }
-          onChange = { this.handleChange }
-          onSubmit = { this.handleSubmit }
+          type="text"
+          placeholder="Enter a username"
+          value={this.state.value}
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
         />
-        <button onClick = { this.handleSubmit }>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
         <p>Body: {this.state.userData.body}</p>
       </div>
-    )
+    );
   }
 }
