@@ -7,7 +7,7 @@ import { UserInput } from './components/UserInput';
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={App}>
+    <Route path='/' component={App}>
       <IndexRoute component={UserInput} />
     </Route>
   </Router>,
