@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default class UserInput extends React.Component {
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '', userData: '' };
@@ -28,7 +28,7 @@ export default class UserInput extends React.Component {
   render() {
     return (
       <div>
-        <h3>User Data</h3>
+        <h1>User Data</h1>
         <input
           type="text"
           placeholder="Enter a username"

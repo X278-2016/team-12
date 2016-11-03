@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { IndexLink } from 'react-router';
+import { IndexLink, Link } from 'react-router';
 
 function App(props) {
   return (
     <div>
-      <h1>Simple SPA</h1>
       <ul className="header">
         <li><IndexLink to="/">Home</IndexLink></li>
+        <li><Link to="admin">Admin</Link></li>
       </ul>
       <div className="content">
         { props.children }
