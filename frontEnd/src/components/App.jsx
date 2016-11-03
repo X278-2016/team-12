@@ -16,7 +16,7 @@ function App(props) {
 }
 
 App.propTypes = {
-  children: React.PropTypes.string.isRequired,
+  children: React.PropTypes.element,
 };
 
 export default App;

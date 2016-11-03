@@ -15,13 +15,13 @@ export default class Home extends React.Component {
   handleSubmit() {
     this.setState({ userData: 'Loading' });
     const request = new XMLHttpRequest();
-    const root = 'https://jsonplaceholder.typicode.com';
+    const root = 'http://localhost:3000';
     const mReact = this;
     request.addEventListener('load', () => {
       const data = JSON.parse(request.responseText);
-      mReact.setState({ value: mReact.state.value, userData: data });
+      mReact.setState({ value: mReact.state.value, userData: data.email });
     });
-    request.open('GET', `${root}/posts/1`);
+    request.open('GET', `${root}/users/1`);
     request.send();
   }
 
