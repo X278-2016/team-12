@@ -1,0 +1,3 @@
+### External documents
+
++ [Design document](https://vanderbilt365-my.sharepoint.com/personal/hoyosjs_vanderbilt_edu/_layouts/15/guestaccess.aspx?guestaccesstoken=gCl3ef2pCV7piXdfYBtE6nDfL5Vj%2fG%2bWrjQAxC6%2fSwU%3d&docid=2_08ea3bf9a0f9b417db2be0b24f5f53b8a&rev=1) specifying the first version API for the backend and JSON document structure (available as [one note document](https://vanderbilt365-my.sharepoint.com/personal/hoyosjs_vanderbilt_edu/_layouts/15/guestaccess.aspx?guestaccesstoken=K59XzzMcJxsS77MICAfA4f%2bRy7llECauV9Zx9cUvurM%3d&docid=2_0ba113162b0d146bfa94c27192a8424b9&rev=1) as well). 
