@@ -19,7 +19,7 @@ export default class Home extends React.Component {
     const mReact = this;
     request.addEventListener('load', () => {
       const data = JSON.parse(request.responseText);
-      mReact.setState({ value: mReact.state.value, userData: data.email });
+      mReact.setState({ value: mReact.state.value, userData: data });
     });
     request.open('GET', `${root}/users/1`);
     request.send();
@@ -37,7 +37,8 @@ export default class Home extends React.Component {
           onSubmit={this.handleSubmit}
         />
         <button onClick={this.handleSubmit}>Submit</button>
-        <p>Body: {this.state.userData.body}</p>
+        <p>Name: {this.state.userData.fullName}</p>
+        <p>Email: {this.state.userData.email}</p>
       </div>
     );
   }
