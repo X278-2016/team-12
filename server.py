@@ -9,6 +9,10 @@ def hello():
 def hit_api():
     return "You've hit the makerspace API!"
 
+@app.route("/api/resources")
+def get_resources():
+    return "You've hit the resources API!"
+
 @app.route("/api/users/")
 def get_users():
     return "Get users request made."
