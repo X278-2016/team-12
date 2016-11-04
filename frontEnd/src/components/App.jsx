@@ -7,6 +7,7 @@ function App(props) {
       <ul className="header">
         <li><IndexLink to="/">Home</IndexLink></li>
         <li><Link to="admin">Admin</Link></li>
+        <li><Link to="currentPeople">View People Here Right Now</Link></li>
       </ul>
       <div className="content">
         { props.children }
