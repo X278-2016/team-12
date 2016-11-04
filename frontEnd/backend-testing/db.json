@@ -39,6 +39,46 @@
           ]
         }
       ]
+    },
+    {
+      "id": 2,
+      "fullName": "Joseph Stahl 2",
+      "email": "joseph.e.stahl2@vanderbilt.edu",
+      "major": "Computer Science",
+      "school": "Engineering",
+      "approvedFor": [
+        {
+          "id": 1,
+          "name": "Laser cutter",
+          "resources": [
+            11
+          ]
+        }
+      ],
+      "signedIn": true,
+      "picture": "",
+      "certifications": [
+        {
+          "id": 1,
+          "name": "Lasers"
+        }
+      ],
+      "cardID": "=1234~5679",
+      "vunetID": "stahlje",
+      "useLog": [
+        {
+          "date": "1478200662728",
+          "machinesUsed": [
+            1
+          ],
+          "resourcesUsed": [
+            {
+              "id": 11,
+              "quantity": "10 grams"
+            }
+          ]
+        }
+      ]
     }
   ],
   "equipment": [

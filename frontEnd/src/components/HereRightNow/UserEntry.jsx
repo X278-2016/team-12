@@ -1,9 +1,20 @@
 import * as React from 'react';
 
-function UserEntry(props) {
-  return (
-    <button onClick={props.onClick}>{props.user.fullName}</button>
-  );
+export default class UserEntry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.clickWrapper = this.clickWrapper.bind(this);
+  }
+
+  clickWrapper() {
+    this.props.onClick(this.props.user);
+  }
+
+  render() {
+    return (
+      <button onClick={this.clickWrapper}>{this.props.user.fullName}</button>
+    );
+  }
 }
 
 UserEntry.propTypes = {
@@ -12,5 +23,3 @@ UserEntry.propTypes = {
   }),
   onClick: React.PropTypes.func.isRequired,
 };
-
-export default UserEntry;

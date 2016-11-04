@@ -32,8 +32,8 @@ export default class HereRightNow extends React.Component {
       });
   }
 
-  handleChildClick(childData) {
-    this.setState({ userToDisplay: childData });
+  handleChildClick(user) {
+    this.setState({ userToDisplay: user });
   }
 
   render() {
