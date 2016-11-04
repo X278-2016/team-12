@@ -2,50 +2,25 @@
   "users": [
     {
       "id": 1,
-      "fullName": "Joseph Stahl",
-      "email": "joseph.e.stahl@vanderbilt.edu",
-      "major": "Computer Science",
-      "school": "Engineering",
-      "approvedFor": [
-        {
-          "id": 1,
-          "name": "Laser cutter",
-          "resources": [11]
-        }
-      ],
-      "signedIn": true,
-      "picture": "",
-      "certifications": [
-        {
-          "id": 1,
-          "name": "Lasers"
-        }
-      ],
-      "cardID": "=1234~5678",
-      "useLog": [
-        {
-          "date": "1478200662728",
-          "machinesUsed": [1],
-          "resourcesUsed": [{
-            "id": 11,
-            "quantity": "10 grams"
-          }]
-        }
-      ]
+      "signedIn": true
     }
   ],
   "equipment": [
     {
       "id": 1,
       "name": "Laser cutter",
-      "resources": [11]
+      "resources": [
+        11
+      ]
     }
   ],
   "certifications": [
     {
       "id": 1,
       "name": "Lasers",
-      "machines": [1]
+      "machines": [
+        1
+      ]
     }
   ],
   "resources": [

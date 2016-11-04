@@ -1,9 +1,10 @@
 import * as React from 'react';
+import * as axios from 'axios';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', userData: '' };
+    this.state = { value: '', userData: '', signedIn: 'enter next card' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -14,15 +15,21 @@ export default class Home extends React.Component {
 
   handleSubmit() {
     this.setState({ userData: 'Loading' });
-    const request = new XMLHttpRequest();
-    const root = 'http://localhost:3000';
-    const mReact = this;
-    request.addEventListener('load', () => {
-      const data = JSON.parse(request.responseText);
-      mReact.setState({ value: mReact.state.value, userData: data });
-    });
-    request.open('GET', `${root}/users/1`);
-    request.send();
+    axios.get('http://localhost:3000/users/1')
+      .then((getResponse) => {
+        const user = getResponse.data;
+        this.setState({ userData: user });
+        user.signedIn = true;
+        axios.put('http://localhost:3000/users/1', user)
+          .then((postResponse) => {
+            if (postResponse.status === 200) {
+              this.setState({ signedIn: 'yes' });
+              setTimeout(() => {
+                this.setState({ signedIn: 'enter next card' });
+              }, 2000);
+            }
+          });
+      });
   }
 
   render() {
@@ -37,8 +44,7 @@ export default class Home extends React.Component {
           onSubmit={this.handleSubmit}
         />
         <button onClick={this.handleSubmit}>Submit</button>
-        <p>Name: {this.state.userData.fullName}</p>
-        <p>Email: {this.state.userData.email}</p>
+        <p>Signed in: {this.state.signedIn}</p>
       </div>
     );
   }
