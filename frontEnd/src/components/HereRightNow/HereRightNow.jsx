@@ -3,6 +3,7 @@ import * as axios from 'axios';
 
 import UserInfoWindow from '../Home/UserInfoWindow';
 import UserEntry from './UserEntry';
+import MachinesCanUse from './MachinesCanUse';
 
 export default class HereRightNow extends React.Component {
   static filterBySignedIn(users) {
@@ -52,12 +53,20 @@ export default class HereRightNow extends React.Component {
     } else {
       infoWindow = <div>No user selected</div>;
     }
+    let machinesWindow = null;
+    if (this.state.userToDisplay.fullName) {
+      machinesWindow = <MachinesCanUse user={this.state.userToDisplay} />;
+    } else {
+      machinesWindow = <div>No user selected</div>;
+    }
     return (
       <div>
         <h1>People Here Right Now</h1>
         <ul>{userButtons}</ul>
         <h3>User Info</h3>
         {infoWindow}
+        <h3>Machine Privileges</h3>
+        {machinesWindow}
       </div>
     );
   }
