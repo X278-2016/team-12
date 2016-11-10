@@ -8,26 +8,33 @@ export default  class Admin extends React.Component {
         super(props);
         this.state = {
             adminID: '',
-            userData: {},
+            adminPass: '',
+            adminData: {},
             signedIn: false,
             error: false,
             statusMessage: '',
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeUsername = this.handleChangeUsername.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChangeUsername(event) {
         this.setState({ adminID: event.target.value });
     }
 
+    handleChangePassword(event) {
+        this.setState({ adminPass: event.target.value});
+    }
+
     handleSubmit() {
-        axios.get(`http://localhost:3000/admins?username=${this.state.username}`)
+        axios.get(`http://localhost:3000/admins?username=${this.state.adminID}`)
             .then((getResponse) => {
+                console.log(getResponse);
                 if (getResponse.data.length !== 1) {
                     this.setState({ error: true, statusMessage: 'Could not find the admin' });
                 } else {
-                    const user = getResponse.data[0];
+                    const admin = getResponse.data[0];
                     this.setState({ adminData: admin, error: false, signedIn: true });
                 }
             }).catch(() => {
@@ -41,8 +48,9 @@ export default  class Admin extends React.Component {
         let infoDisplay = null;
 
         if (signedIn) {
-            const userData = this.state.adminData;
+            const adminData = this.state.adminData;
             infoDisplay = (<AdminInfoWindow admin={adminData} />);
+            console.log(infoDisplay);
         } else if (error) {
             const errorMessage = this.state.statusMessage;
             infoDisplay = <div>{errorMessage}</div>;
@@ -55,19 +63,20 @@ export default  class Admin extends React.Component {
                     type="text"
                     placeholder="Enter your username"
                     value={this.state.username}
-                    onChange={this.handleChange}
+                    onChange={this.handleChangeUsername}
                     onSubmit={this.handleSubmit}
                 />
                 <br/>
                 <input
                     type="text"
                     placeholder="Enter your password"
-                    value={this.state.hashedPass}
-                    onChange={this.handleChange}
+                    value={this.state.password}
+                    onChange={this.handleChangePassword}
                     onSubmit={this.handleSubmit}
                 />
                 <br/>
                 <button onClick={this.handleSubmit}>Submit</button>
+                {infoDisplay}
             </div>
         );
     }

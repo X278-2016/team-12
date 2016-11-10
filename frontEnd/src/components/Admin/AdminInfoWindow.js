@@ -1,14 +1,15 @@
 import * as React from 'react';
 
-function UserInfoWindow(props) {
+function AdminInfoWindow(props) {
   return (
     <div>
-      <p>Name: {props.user.fullName}</p>
+      <p>Name: {props.admin.name}</p>
+      <p>Username: {props.admin.username}</p>
     </div>
 );
 }
 
-UserInfoWindow.propTypes = {
+AdminInfoWindow.propTypes = {
   user: React.PropTypes.shape({
     fullName: React.PropTypes.string.isRequired,
   }),
