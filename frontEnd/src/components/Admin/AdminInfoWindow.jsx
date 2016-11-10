@@ -6,12 +6,13 @@ function AdminInfoWindow(props) {
       <p>Name: {props.admin.name}</p>
       <p>Username: {props.admin.username}</p>
     </div>
-);
+  );
 }
 
 AdminInfoWindow.propTypes = {
-  user: React.PropTypes.shape({
-    fullName: React.PropTypes.string.isRequired,
+  admin: React.PropTypes.shape({
+    name: React.PropTypes.string.isRequired,
+    username: React.PropTypes.string.isRequired,
   }),
 };
 
