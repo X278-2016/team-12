@@ -2,11 +2,15 @@ import * as React from 'react';
 
 function Certifications(props) {
   const certifications = props.user.certifications;
-  const elements = [];
-  certifications.forEach(cert => elements.push(<li>{cert.name}</li>));
+  let elements = null;
+  if (certifications.length > 0) {
+    elements = certifications.map(cert => <li key={cert.id}>{cert.name}</li>);
+  } else {
+    elements = <div />;
+  }
 
   return (
-    <ul>{certifications}</ul>
+    <ul>{elements}</ul>
   );
 }
 
