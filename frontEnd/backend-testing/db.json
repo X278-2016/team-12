@@ -110,6 +110,7 @@
       "id": 100,
       "name": "Jules White",
       "username": "jwhite",
+      "password": "password",
       "hashedPass": "MakingUpAHashIsSilly",
       "salt": "ThisIsMySalt"
     }

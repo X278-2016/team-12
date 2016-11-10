@@ -26,10 +26,10 @@ export default class HereRightNow extends React.Component {
 
   componentDidMount() {
     axios.get('http://localhost:3000/users')
-      .then((response) => {
-        const users = response.data;
-        this.setState({ usersHere: HereRightNow.filterBySignedIn(users) });
-      });
+        .then((response) => {
+          const users = response.data;
+          this.setState({usersHere: HereRightNow.filterBySignedIn(users)});
+        });
   }
 
   handleChildClick(user) {

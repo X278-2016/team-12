@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App';
 import Home from './components/Home/Home';
-import Admin from './components/Admin';
+import Admin from './components/Admin/Admin';
 import HereRightNow from './components/HereRightNow/HereRightNow';
 
 ReactDOM.render(
