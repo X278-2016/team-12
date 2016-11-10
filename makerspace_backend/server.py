@@ -5,23 +5,22 @@ from flask import jsonify
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
-def get_index():
-    # This method should return the index for the makerspace
-    return "GET index"
-
-
 @app.route('/v1/users', methods=['GET', 'POST'])
 def users():
+    '''
+    POST: New user will be in the body.
+    GET: Returns a JSON object containing the list of all the users.
+    '''
     if request.method == 'GET':
         # This should return all the users with populated equipments
         return "GET users"
     elif request.method == 'POST':
+
         # Update the database to add new users
         return "POST new user"
 
 
-@app.route('/v1/user/<string:id>', methods=['GET'])
+@app.route('/v1/user/<string:id>', methods=['GET', 'PATCH'])
 def get_user(id):
     # Gets a single user from the user database
     return "Stand alone user " + id
