@@ -1,94 +1,118 @@
 {
-	"users": [{
-		"id": 1,
-		"fullName": "Joseph Stahl",
-		"email": "joseph.e.stahl@vanderbilt.edu",
-		"major": "Computer Science",
-		"school": "Engineering",
-		"approvedFor": [{
-			"id": 1,
-			"name": "Laser cutter",
-			"resources": [
-				11
-			]
-		}],
-		"signedIn": true,
-		"picture": "",
-		"certifications": [{
-			"id": 1,
-			"name": "Lasers"
-		}],
-		"cardID": "=1234~5678",
-		"vunetID": "stahlje",
-		"useLog": [{
-			"date": "1478200662728",
-			"machinesUsed": [
-				1
-			],
-			"resourcesUsed": [{
-				"id": 11,
-				"quantity": "10 grams"
-			}]
-		}]
-	}, {
-		"id": 2,
-		"fullName": "Joseph Stahl 2",
-		"email": "joseph.e.stahl2@vanderbilt.edu",
-		"major": "Computer Science",
-		"school": "Engineering",
-		"approvedFor": [{
-			"id": 1,
-			"name": "Laser cutter",
-			"resources": [
-				11
-			]
-		}],
-		"signedIn": true,
-		"picture": "",
-		"certifications": [{
-			"id": 1,
-			"name": "Lasers"
-		}],
-		"cardID": "=1234~5679",
-		"vunetID": "stahlje2",
-		"useLog": [{
-			"date": "1478200662728",
-			"machinesUsed": [
-				1
-			],
-			"resourcesUsed": [{
-				"id": 11,
-				"quantity": "10 grams"
-			}]
-		}]
-	}],
-	"equipment": [{
-		"id": 1,
-		"name": "Laser cutter",
-		"resources": [
-			11
-		]
-	}, {
-		"id": 2,
-		"name": "Table saw",
-		"resources": []
-  }],
-	"certifications": [{
-		"id": 1,
-		"name": "Lasers",
-		"machines": [
-			1
-		]
-	}],
-	"resources": [{
-		"id": 11,
-		"name": "Plastic spool"
-	}],
-	"admins": [{
-		"id": 100,
-		"name": "Jules White",
-		"username": "jwhite",
-		"hashedPass": "MakingUpAHashIsSilly",
-		"salt": "ThisIsMySalt"
-	}]
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Joseph Stahl",
+      "email": "joseph.e.stahl@vanderbilt.edu",
+      "major": "Computer Science",
+      "school": "Engineering",
+      "approvedFor": [
+        {
+          "id": 1,
+          "name": "Laser cutter",
+          "resources": [
+            11
+          ]
+        }
+      ],
+      "signedIn": true,
+      "picture": "",
+      "certifications": [
+        {
+          "id": 1,
+          "name": "Lasers"
+        }
+      ],
+      "cardID": "=1234~5678",
+      "vunetID": "stahlje",
+      "useLog": [
+        {
+          "date": "1478200662728",
+          "machinesUsed": [
+            1
+          ],
+          "resourcesUsed": [
+            {
+              "id": 11,
+              "quantity": "10 grams"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "Joseph Stahl 2",
+      "email": "joseph.e.stahl2@vanderbilt.edu",
+      "major": "Computer Science",
+      "school": "Engineering",
+      "approvedFor": [
+        {
+          "id": 1,
+          "name": "Laser cutter",
+          "resources": [
+            11
+          ]
+        }
+      ],
+      "signedIn": true,
+      "picture": "",
+      "certifications": [
+        {
+          "id": 1,
+          "name": "Lasers"
+        }
+      ],
+      "cardID": "=1234~5679",
+      "vunetID": "stahlje",
+      "useLog": [
+        {
+          "date": "1478200662728",
+          "machinesUsed": [
+            1
+          ],
+          "resourcesUsed": [
+            {
+              "id": 11,
+              "quantity": "10 grams"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "equipment": [
+    {
+      "id": 1,
+      "name": "Laser cutter",
+      "resources": [
+        11
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": 1,
+      "name": "Lasers",
+      "machines": [
+        1
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": 11,
+      "name": "Plastic spool"
+    }
+  ],
+  "admins": [
+    {
+      "id": 100,
+      "name": "Jules White",
+      "username": "jwhite",
+      "password": "password",
+      "hashedPass": "MakingUpAHashIsSilly",
+      "salt": "ThisIsMySalt"
+    }
+  ]
 }
