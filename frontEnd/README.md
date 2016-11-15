@@ -6,3 +6,6 @@ Run `npm install` to install all dependencies, then run `npm run dev` to get the
 
 Until we get a solid backened running, there's sample data available in `db.json`. Run `npm run backend-dev` to make the data available on port 3000.
 The structure that of the generated API should closely mirror the final API structure.
+
+## Note to self
+VSCode doesn't play nice with `webpack-dev-server`. Instead, run `webpack --watch` so that VSCode can properly debug with source maps.
