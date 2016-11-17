@@ -5,6 +5,7 @@ import UserInfoWindow from '../Home/UserInfoWindow';
 import UserEntry from './UserEntry';
 import MachinesCanUse from './MachinesCanUse';
 import Certifications from './Certifications';
+import Logout from './Logout';
 
 export default class HereRightNow extends React.Component {
   static filterBySignedIn(users) {
@@ -30,7 +31,7 @@ export default class HereRightNow extends React.Component {
     axios.get('http://localhost:3000/users')
         .then((response) => {
           const users = response.data;
-          this.setState({usersHere: HereRightNow.filterBySignedIn(users)});
+          this.setState({ usersHere: HereRightNow.filterBySignedIn(users) });
         });
   }
 
@@ -53,14 +54,17 @@ export default class HereRightNow extends React.Component {
     let infoWindow = null;
     let machinesWindow = null;
     let certificationWindow = null;
+    let logoutWindow = null;
     if (this.state.userToDisplay.fullName) {
       infoWindow = <UserInfoWindow user={this.state.userToDisplay} />;
       machinesWindow = <MachinesCanUse user={this.state.userToDisplay} />;
       certificationWindow = <Certifications user={this.state.userToDisplay} />;
+      logoutWindow = <Logout user={this.state.userToDisplay} />;
     } else {
       infoWindow = <div>No user selected</div>;
       machinesWindow = <div>No user selected</div>;
       certificationWindow = <div>No user selected</div>;
+      logoutWindow = <div>No user selected</div>;
     }
     return (
       <div>
@@ -72,6 +76,8 @@ export default class HereRightNow extends React.Component {
         {machinesWindow}
         <h3>Certifications</h3>
         {certificationWindow}
+        <h3>Sign out this user</h3>
+        {logoutWindow}
       </div>
     );
   }
