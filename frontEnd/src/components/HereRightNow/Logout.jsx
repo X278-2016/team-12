@@ -9,32 +9,30 @@ export default class Logout extends React.Component {
       error: false,
       statusMessage: '',
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleSubmit() {
-    const mongoID = this.props.user.id;
-    axios.patch(`http://localhost:3000/users/${mongoID}`, {
+  handleClick() {
+    axios.patch(`http://localhost:3000/users/${this.props.user.id}`, {
       signedIn: false,
     })
-      .then((getResponse) => {
-        if (getResponse.data.length !== 1) {
-          this.setState({ error: true, statusMessage: 'Could not find the user' });
-        } else {
-          this.setState({ statusMessage: 'User found, signing out', user: getResponse.data[0] });
-        }
-      }).catch(() => {
-        this.setState({ error: true, signedIn: false });
-      });
+    .then(() => this.props.logoutFunction(this.props.user))
+    .catch(() => this.setState({
+      error: true,
+      statusMessage: `Could not sign out ${this.props.user.fullName}`,
+    }));
+    this.props.logoutFunction(this.props.user);
   }
 
   render() {
-    return <button onClick={this.handleSubmit}>Sign out</button>;
+    return <button onClick={this.handleClick}>Sign out</button>;
   }
 }
 
 Logout.propTypes = {
   user: React.PropTypes.shape({
     id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    fullName: React.PropTypes.string,
   }),
+  logoutFunction: React.PropTypes.func,
 };

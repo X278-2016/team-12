@@ -41,7 +41,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Joseph Stahl 2",
       "email": "joseph.e.stahl2@vanderbilt.edu",
       "major": "Computer Science",
@@ -55,7 +55,7 @@
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
       "certifications": [
         {
