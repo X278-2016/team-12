@@ -9,12 +9,19 @@ if __name__ == "__main__":
     db = con.test_database
 
     # Creates member variable of our DB object
-    people = db.people
-    people.insert({'name':'Bob', 'food':'cheese'})
-    people.insert({'name':'John', 'location':'USA'})
+    users = db.users
+    users.insert({'name':'Bob', 'food':'cheese'})
+    users.insert({'name':'John', 'location':'USA'})
+
+
+    users2 = users.find()
+    print 'Insert & find'
+    for person in users2:
+        print person
+    users.remove({});
 
     # SELECT *
-    peeps = people.find()
+    users2 = users.find()
     print 'Insert & find'
-    for person in peeps:
+    for person in users2:
         print person
