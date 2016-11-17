@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "fullName": "Joseph Stahl",
       "email": "joseph.e.stahl@vanderbilt.edu",
       "major": "Computer Science",
@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {
