@@ -44,7 +44,6 @@ MachinesCanUse.propTypes = {
       React.PropTypes.shape({
         id: React.PropTypes.number.isRequired,
         name: React.PropTypes.string.isRequired,
-        resources: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
       }),
     ),
   }),

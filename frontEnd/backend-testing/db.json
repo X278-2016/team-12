@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
       "certifications": [
         {
@@ -25,20 +25,18 @@
       ],
       "cardID": "=1234~5678",
       "vunetID": "stahlje",
-      "useLog": [
-        {
-          "date": "1478200662728",
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": [
-            {
-              "id": 11,
-              "quantity": "10 grams"
-            }
-          ]
-        }
-      ]
+      "useLog": {
+        "date": 1479542552014,
+        "machinesUsed": [
+          1
+        ],
+        "resourcesUsed": [
+          {
+            "id": 11,
+            "quantity": "15 grams"
+          }
+        ]
+      }
     },
     {
       "id": "2",
