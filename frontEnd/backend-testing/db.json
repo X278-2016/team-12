@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {
@@ -53,7 +53,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {
@@ -63,20 +63,13 @@
       ],
       "cardID": "=1234~5679",
       "vunetID": "stahlje2",
-      "useLog": [
-        {
-          "date": "1478200662728",
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": [
-            {
-              "id": 11,
-              "quantity": "10 grams"
-            }
-          ]
-        }
-      ]
+      "useLog": {
+        "date": 1479586256106,
+        "machinesUsed": [
+          1
+        ],
+        "resourcesUsed": []
+      }
     }
   ],
   "equipment": [
