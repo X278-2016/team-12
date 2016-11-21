@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
-import ResourceLog from './ResourceLog';
+import ResourceLog2 from './ResourceLog2';
 
 export default class Logout extends React.Component {
   constructor(props) {
@@ -12,8 +12,6 @@ export default class Logout extends React.Component {
       showResourceLog: false,
       resources: [],
     };
-    this.handleClick = this.startLogoutProcess.bind(this);
-    this.addResources = this.addResources.bind(this);
     this.startLogoutProcess = this.startLogoutProcess.bind(this);
     this.finishLogoutProcess = this.finishLogoutProcess.bind(this);
   }
@@ -25,13 +23,6 @@ export default class Logout extends React.Component {
     // finish logout by recording resource usage and marking user as signed out
     axios.patch(`http://localhost:3000/users/${this.props.user.id}`, {
       signedIn: false,
-      // change resorucesUsed to reflect the proper quantity
-      useLog: {
-        date: Date.now(),
-        machinesUsed: this.props.user.approvedFor.map(machine => machine.id),
-        resourcesUsed: this.state.resources.map(resource =>
-          ({ id: resource.id, quantity: '15 grams' })),
-      },
     })
     // after sending request to server, tell the list of users
     // that we've signed out the user by calling logoutFunction
@@ -42,20 +33,15 @@ export default class Logout extends React.Component {
     }));
   }
 
-  addResources(usedResources) {
-    this.setState({ resources: usedResources });
-  }
-
   render() {
     if (!this.state.showResourceLog) {
       return <button onClick={this.startLogoutProcess}>Sign out</button>;
     }
     return (
-      <ResourceLog
-        addResources={this.addResources}
-        finishLogoutProcess={this.finishLogoutProcess}
-        resources={this.state.resources}
-      />
+      <div>
+        <ResourceLog2 />
+        <button onClick={this.finishLogoutProcess}>Finish</button>
+      </div>
     );
   }
 }

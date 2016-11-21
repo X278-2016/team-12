@@ -9,7 +9,9 @@ export default class ResourceLog extends React.Component {
       usedResources: [],
       error: false,
     };
-    // this.handleClick = this.handleClick.bind(this);
+    this.input = {};
+    this.saveAndContinue = this.saveAndContinue.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -22,19 +24,39 @@ export default class ResourceLog extends React.Component {
       .catch(() => this.setState({ error: true }));
   }
 
+  saveAndContinue(event) {
+
+  }
+
+  handleChange(event) {
+    console.log(event.target);
+  }
+
   render() {
-    let resourceList = null;
+    let resourceForm = null;
     if (this.state.possibleResources.length > 0) {
-      resourceList = this.state.possibleResources.map(resource =>
-        <li key={resource.id}>{resource.name}</li>);
+      const resourceInputs = this.state.possibleResources.map((resource, index) =>
+        (<input
+          key={index}
+          type="text"
+          placeholder={resource.name}
+          onChange={this.handleChange}
+          id={index}
+        />),
+      );
+      resourceForm = (
+        <div>
+          {resourceInputs}
+          <button onClick={this.saveAndContinue}>Finish logout</button>
+        </div>
+      );
     }
     return (
       <div>
         <h2>Before logout, record resources used</h2>
-        <ul>
-          {resourceList}
-        </ul>
-        <button onClick={this.props.finishLogoutProcess}>Finish logout</button>
+        <form>
+          {resourceForm}
+        </form>
       </div>
     );
   }
