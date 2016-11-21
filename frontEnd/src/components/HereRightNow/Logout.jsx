@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
-import ResourceLog2 from './ResourceLog2';
+import ResourceLog from './ResourceLog';
 
 export default class Logout extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ export default class Logout extends React.Component {
       error: false,
       statusMessage: '',
       showResourceLog: false,
-      resources: [],
     };
     this.startLogoutProcess = this.startLogoutProcess.bind(this);
     this.finishLogoutProcess = this.finishLogoutProcess.bind(this);
@@ -19,10 +18,15 @@ export default class Logout extends React.Component {
   startLogoutProcess() {
     this.setState({ showResourceLog: !this.state.showResourceLog });
   }
-  finishLogoutProcess() {
+  finishLogoutProcess(usedResources) {
     // finish logout by recording resource usage and marking user as signed out
     axios.patch(`http://localhost:3000/users/${this.props.user.id}`, {
       signedIn: false,
+      useLog: this.props.user.useLog.concat([{
+        date: Date.now(),
+        machinesUsed: [1],
+        resourcesUsed: usedResources,
+      }]),
     })
     // after sending request to server, tell the list of users
     // that we've signed out the user by calling logoutFunction
@@ -39,8 +43,7 @@ export default class Logout extends React.Component {
     }
     return (
       <div>
-        <ResourceLog2 />
-        <button onClick={this.finishLogoutProcess}>Finish</button>
+        <ResourceLog finishLogout={this.finishLogoutProcess} />
       </div>
     );
   }
@@ -49,10 +52,18 @@ export default class Logout extends React.Component {
 Logout.propTypes = {
   user: React.PropTypes.shape({
     id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    fullName: React.PropTypes.string,
+    fullName: React.PropTypes.string.isRequired,
     approvedFor: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
     })),
-  }),
-  logoutFunction: React.PropTypes.func,
+    useLog: React.PropTypes.arrayOf(React.PropTypes.shape({
+      date: React.PropTypes.number,
+      machinesUsed: React.PropTypes.arrayOf(React.PropTypes.number),
+      resourcesUsed: React.PropTypes.arrayOf(React.PropTypes.shape({
+        id: React.PropTypes.number,
+        quantity: React.PropTypes.number,
+      })),
+    })),
+  }).isRequired,
+  logoutFunction: React.PropTypes.func.isRequired,
 };

@@ -6,63 +6,42 @@ export default class ResourceLog extends React.Component {
     super(props);
     this.state = {
       possibleResources: [],
-      usedResources: [],
-      error: false,
     };
-    this.input = {};
-    this.saveAndContinue = this.saveAndContinue.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   componentDidMount() {
     axios.get('http://localhost:3000/resources')
-      .then((response) => {
-        this.setState({ possibleResources: response.data });
-        // placeholder, for now until you can record resource usage
-        this.props.addResources(response.data);
-      })
-      .catch(() => this.setState({ error: true }));
+      .then((response) => { this.setState({ possibleResources: response.data }); });
   }
 
-  saveAndContinue(event) {
-
-  }
-
-  handleChange(event) {
-    console.log(event.target);
+  handleSubmit() {
+    const resourcesUsed = [{
+      id: 1,
+      quantity: 10,
+    }];
+    this.props.finishLogout(resourcesUsed);
   }
 
   render() {
-    let resourceForm = null;
-    if (this.state.possibleResources.length > 0) {
-      const resourceInputs = this.state.possibleResources.map((resource, index) =>
-        (<input
-          key={index}
+    const resourceList = this.state.possibleResources.map(resource =>
+      <div>
+        <input
+          key={resource.id}
           type="text"
           placeholder={resource.name}
-          onChange={this.handleChange}
-          id={index}
-        />),
-      );
-      resourceForm = (
-        <div>
-          {resourceInputs}
-          <button onClick={this.saveAndContinue}>Finish logout</button>
-        </div>
-      );
-    }
+        />
+        {resource.units}
+      </div>,
+    );
     return (
       <div>
-        <h2>Before logout, record resources used</h2>
-        <form>
-          {resourceForm}
-        </form>
+        {resourceList}
+        <button onClick={this.handleSubmit}>Finish</button>
       </div>
     );
   }
 }
 
 ResourceLog.propTypes = {
-  addResources: React.PropTypes.func.isRequired,
-  finishLogoutProcess: React.PropTypes.func.isRequired,
+  finishLogout: React.PropTypes.func.isRequired,
 };
