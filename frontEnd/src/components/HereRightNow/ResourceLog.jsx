@@ -6,33 +6,56 @@ export default class ResourceLog extends React.Component {
     super(props);
     this.state = {
       possibleResources: [],
+      usedResources: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.inputs = [];
   }
   componentDidMount() {
     axios.get('http://localhost:3000/resources')
-      .then((response) => { this.setState({ possibleResources: response.data }); });
+      .then((response) => {
+        const resources = response.data;
+        this.setState({ possibleResources: resources });
+        // TODO: see notepad++ code and move ref stuff here to update this.state.usedResources
+        const newResources = {};
+        resources.forEach((resource) => {
+          const newResource = {
+            id: Number.parseInt(resource.id, 10),
+            quantity: 0,
+          };
+          newResources[newResource.id] = newResource;
+        });
+        this.setState({ usedResources: newResources });
+      });
   }
 
   handleSubmit() {
-    const resourcesUsed = [{
-      id: 1,
-      quantity: 10,
-    }];
-    this.props.finishLogout(resourcesUsed);
+    this.props.finishLogout(this.state.usedResources);
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const key = Number.parseInt(target.dataset.resourceid, 10);
+    const value = Number.parseInt(target.value, 10);
+    const modififedResource = {
+      [key]: value,
+    };
+    this.setState({ usedResources:
+      Object.assign({}, this.state.usedResources, modififedResource) });
   }
 
   render() {
     const resourceList = this.state.possibleResources.map(resource =>
-      <div>
+      (<div key={resource.id}>
+        {resource.name}:
         <input
-          key={resource.id}
           type="text"
-          placeholder={resource.name}
+          data-resourceid={resource.id}
+          onChange={this.handleChange}
         />
         {resource.units}
-      </div>,
-    );
+      </div>));
     return (
       <div>
         {resourceList}

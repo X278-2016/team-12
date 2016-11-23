@@ -27,16 +27,13 @@
       "vunetID": "stahlje",
       "useLog": [
         {
-          "date": 1479771106803,
+          "date": 1479938122320,
           "machinesUsed": [
             1
           ],
-          "resourcesUsed": [
-            {
-              "id": 1,
-              "quantity": 10
-            }
-          ]
+          "resourcesUsed": {
+            "11": 44
+          }
         }
       ]
     },
