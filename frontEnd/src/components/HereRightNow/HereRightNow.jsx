@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
+import md5 from 'md5';
 
 import UserInfoWindow from '../Home/UserInfoWindow';
 import UserEntry from './UserEntry';
@@ -60,8 +61,10 @@ export default class HereRightNow extends React.Component {
 
     let userWindow = null;
     if (this.state.userToDisplay && this.state.userToDisplay.fullName) {
+      const md5email = md5(this.state.userToDisplay.email);
       userWindow = (<div>
         <h3>User Info</h3>
+        <img src={`http://gravatar.com/avatar/${md5email}`} alt="gravatar" />
         <UserInfoWindow user={this.state.userToDisplay} />
         <h3>Machine Privileges</h3>
         <MachinesCanUse user={this.state.userToDisplay} />

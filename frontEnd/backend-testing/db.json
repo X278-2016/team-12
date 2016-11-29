@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {
@@ -33,6 +33,24 @@
           ],
           "resourcesUsed": {
             "11": 44
+          }
+        },
+        {
+          "date": 1480439204087,
+          "machinesUsed": [
+            1
+          ],
+          "resourcesUsed": {
+            "11": 6
+          }
+        },
+        {
+          "date": 1480439263255,
+          "machinesUsed": [
+            1
+          ],
+          "resourcesUsed": {
+            "11": 5555
           }
         }
       ]
@@ -52,7 +70,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {
