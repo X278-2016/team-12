@@ -30,7 +30,7 @@ def users():
     if request.method == 'GET':
         # This should return all the users with populated equipments
         queryResult = users.find()
-        return dumps({'response': [user for user in queryResult]})
+        return dumps({'users': [user for user in queryResult]})
     elif request.method == 'POST':
         # Update the database to add new users
         # Relevant mongoDB API: insertOne
@@ -42,7 +42,8 @@ def users():
 @app.route('/v1/user/<string:id>', methods=['GET', 'PATCH'])
 def get_user(id):
     # Gets a single user from the user database
-    return "Stand alone user " + id
+    queryResult = users.find_one({"vunetID": id})
+    return dumps(queryResult) if not None else dumps({})
 
 
 @app.route('/v1/equipment', methods=['GET', 'POST'])
