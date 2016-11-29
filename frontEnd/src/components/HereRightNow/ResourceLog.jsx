@@ -63,7 +63,7 @@ export default class ResourceLog extends React.Component {
     } else {
       // modifying Machines
       const key = Number.parseInt(target.dataset.machineid, 10);
-      const value = target.value === 'true';
+      const value = target.value === 'on';
       const modifiedMachine = {
         [key]: value,
       };

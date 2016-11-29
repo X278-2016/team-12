@@ -52,7 +52,7 @@
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
       "certifications": [
         {
@@ -62,7 +62,17 @@
       ],
       "cardID": "=1234~5679",
       "vunetID": "stahlje2",
-      "useLog": []
+      "useLog": [
+        {
+          "date": 1480446566522,
+          "machinesUsed": {
+            "1": true
+          },
+          "resourcesUsed": {
+            "11": 45
+          }
+        }
+      ]
     }
   ],
   "equipment": [
