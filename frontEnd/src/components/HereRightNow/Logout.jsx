@@ -56,14 +56,14 @@ Logout.propTypes = {
     approvedFor: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.number.isRequired,
     })),
-    useLog: React.PropTypes.arrayOf(React.PropTypes.shape({
+    useLog: React.PropTypes.array(React.PropTypes.shape({
       date: React.PropTypes.number,
       machinesUsed: React.PropTypes.arrayOf(React.PropTypes.number),
-      resourcesUsed: React.PropTypes.arrayOf(React.PropTypes.shape({
+      resourcesUsed: React.PropTypes.shape(React.PropTypes.shape({
         id: React.PropTypes.number,
         quantity: React.PropTypes.number,
       })),
     })),
-  }).isRequired,
+  }),
   logoutFunction: React.PropTypes.func.isRequired,
 };

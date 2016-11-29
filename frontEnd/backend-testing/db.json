@@ -25,35 +25,7 @@
       ],
       "cardID": "=1234~5678",
       "vunetID": "stahlje",
-      "useLog": [
-        {
-          "date": 1479938122320,
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": {
-            "11": 44
-          }
-        },
-        {
-          "date": 1480439204087,
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": {
-            "11": 6
-          }
-        },
-        {
-          "date": 1480439263255,
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": {
-            "11": 5555
-          }
-        }
-      ]
+      "useLog": []
     },
     {
       "id": "2",
@@ -80,13 +52,7 @@
       ],
       "cardID": "=1234~5679",
       "vunetID": "stahlje2",
-      "useLog": {
-        "date": 1479586256106,
-        "machinesUsed": [
-          1
-        ],
-        "resourcesUsed": []
-      }
+      "useLog": []
     }
   ],
   "equipment": [
