@@ -18,13 +18,13 @@ export default class Logout extends React.Component {
   startLogoutProcess() {
     this.setState({ showResourceLog: !this.state.showResourceLog });
   }
-  finishLogoutProcess(usedResources) {
+  finishLogoutProcess(usedResources, usedMachines) {
     // finish logout by recording resource usage and marking user as signed out
     axios.patch(`http://localhost:3000/users/${this.props.user.id}`, {
       signedIn: false,
       useLog: this.props.user.useLog.concat([{
         date: Date.now(),
-        machinesUsed: [1],
+        machinesUsed: usedMachines,
         resourcesUsed: usedResources,
       }]),
     })
