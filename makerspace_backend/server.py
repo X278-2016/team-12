@@ -1,8 +1,24 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from bson.json_util import dumps
+import pymongo
 
+# Flask app
 app = Flask(__name__)
+
+# Connection
+conn = None
+
+# Database
+db = None
+
+# Collections
+users = None
+equipment = None
+resources = None
+admins = None
+certifications = None
 
 
 @app.route('/v1/users', methods=['GET', 'POST'])
@@ -13,11 +29,14 @@ def users():
     '''
     if request.method == 'GET':
         # This should return all the users with populated equipments
-        return "GET users"
+        queryResult = users.find()
+        return dumps({'response': [user for user in queryResult]})
     elif request.method == 'POST':
-
         # Update the database to add new users
-        return "POST new user"
+        # Relevant mongoDB API: insertOne
+        # Extract new user from the body.
+        # Add validation.
+        return "PUT users"
 
 
 @app.route('/v1/user/<string:id>', methods=['GET', 'PATCH'])
@@ -58,4 +77,22 @@ def add_certification_user(id):
 
 
 if __name__ == "__main__":
+    # try to connect
+    try:
+        conn = pymongo.MongoClient()
+        print "Connected Succesfully"
+    except pymongo.errors.Connection, e:
+        print "Couldn't connect to the database"
+        quit()
+
+    # db
+    db = conn.makerspace_db
+
+    # Collections
+    users = db.users
+    equipment = db.equipment
+    certifications = db.certifications
+    resources = db.resources
+    admins = db.admins
+
     app.run()
