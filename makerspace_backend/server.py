@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-from flask import jsonify
+from flask import Response
 from bson.json_util import dumps
 import pymongo
 
@@ -30,7 +30,8 @@ def users():
     if request.method == 'GET':
         # This should return all the users with populated equipments
         queryResult = users.find()
-        return dumps({'users': [user for user in queryResult]})
+        response_dict = dumps({'users': [user for user in queryResult]})
+        return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # Update the database to add new users
         # Relevant mongoDB API: insertOne
@@ -41,9 +42,10 @@ def users():
 
 @app.route('/v1/user/<string:id>', methods=['GET', 'PATCH'])
 def get_user(id):
-    # Gets a single user from the user database
+    # Gets a single user from the user database, returns None if no such user.
     queryResult = users.find_one({"vunetID": id})
-    return dumps(queryResult) if not None else dumps({})
+    return Response(dumps(queryResult), mimetype='application/json') \
+        if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
 
 
 @app.route('/v1/equipment', methods=['GET', 'POST'])
