@@ -30,7 +30,7 @@ def users():
     if request.method == 'GET':
         # This should return all the users with populated equipments
         queryResult = users.find()
-        return dumps({'response': [user for user in queryResult]})
+        return dumps({'users': [user for user in queryResult]})
     elif request.method == 'POST':
         # Update the database to add new users
         # Relevant mongoDB API: insertOne
