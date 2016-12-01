@@ -28,7 +28,13 @@ export default class Home extends React.Component {
           this.setState({ error: true, statusMessage: 'Could not find the user' });
         } else {
           const user = getResponse.data[0];
-          this.setState({ userData: user, error: false, signedIn: true });
+          this.setState({ userData: user, error: false });
+          axios.patch(`http://localhost:3000/users/${user.id}`, {
+            signedIn: true,
+          })
+          .then(() => {
+            this.setState({ signedIn: true });
+          });
         }
       }).catch(() => {
         this.setState({ error: true, signedIn: false });
