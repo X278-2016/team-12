@@ -32,6 +32,11 @@ export default class AdminPanel extends React.Component {
       </div>
     );
   }
-
-
 }
+
+AdminPanel.propTypes = {
+  handleLogin: React.PropTypes.func,
+  adminData: React.PropTypes.shape({
+    name: React.PropTypes.string,
+  }),
+};
