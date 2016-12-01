@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import Response
+from bson import ObjectId
 from bson.json_util import dumps
 import pymongo
 
@@ -69,7 +70,9 @@ def equipment():
 @app.route('/v1/equipment/<string:id>', methods=['GET'])
 def get_equipment(id):
     # returns a single element from the equipment database
-    return "GET equipement with id:" + id
+    queryResult = equipment_collection.find({'_id': ObjectId(id)})
+    return Response(dumps(queryResult), mimetype='application/json') \
+        if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
 
 
 @app.route('/v1/certifications', methods=['GET', 'POST'])
