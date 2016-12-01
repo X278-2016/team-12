@@ -42,16 +42,22 @@ def users():
 
 @app.route('/v1/user/<string:id>', methods=['GET', 'PATCH'])
 def get_user(id):
-    # Gets a single user from the user database, returns None if no such user.
-    queryResult = users_collection.find_one({"vunetID": id})
-    return Response(dumps(queryResult), mimetype='application/json') \
-        if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
+    '''
+    GET: Gets the user identified by the given vunet id
+    PATCH: Updates user data.
+    '''
+    if request.method == 'GET':
+        # This querie for a single user from the user database, returns None if no such user.
+        queryResult = users_collection.find_one({"vunetID": id})
+        return Response(dumps(queryResult), mimetype='application/json') \
+            if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
+    elif request.method == 'PATCH':
+        return "PATCH user"
 
 
 @app.route('/v1/equipment', methods=['GET', 'POST'])
 def equipment():
     if request.method == 'GET':
-        # returns all the equipment
         queryResult = equipment_collection.find()
         response_dict = dumps({'equipment': [equip for equip in queryResult]})
         return Response(response_dict, mimetype='application/json')
