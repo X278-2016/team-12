@@ -6,7 +6,7 @@ import time
 client = MongoClient()
 
 ## This value will be changed based on which database we want to use.
-db = client.test
+db = client.makerspace_db
 
 ## Drop existing tables
 db.users.drop()
