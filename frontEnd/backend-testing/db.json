@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {
@@ -33,6 +33,30 @@
           },
           "resourcesUsed": {
             "11": 11
+          }
+        },
+        {
+          "date": 1480613104104,
+          "machinesUsed": {
+            "1": {
+              "id": 1,
+              "used": false
+            }
+          },
+          "resourcesUsed": {
+            "11": {
+              "id": 11,
+              "quantity": 0
+            }
+          }
+        },
+        {
+          "date": 1480613152281,
+          "machinesUsed": {
+            "1": true
+          },
+          "resourcesUsed": {
+            "11": 8
           }
         }
       ]
@@ -52,7 +76,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [
         {

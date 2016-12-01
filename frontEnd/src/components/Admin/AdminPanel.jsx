@@ -1,31 +1,42 @@
 import * as React from 'react';
 
 export default class AdminPanel extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      showAddUser: false,
+      showRemoveUser: false,
+      showAddEquipment: false,
+      showRemoveEquipment: false,
+      showAddCert: false,
+      showRemoveCert: false,
+      showAddAdmin: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    render() {
-        return (
-            <div>
-                <h1>Admin Panel</h1>
-                <button> Add Users</button>
-                <br/>
-                <button> Edit Users</button>
-                <br/>
-                <button> Add Admins</button>
-                <br/>
-                <button> Edit Admins</button>
-                <br/>
-                <button> Add Equipment</button>
-                <br/>
-                <button> Edit Equipment</button>
-                <br/>
-                <button> Add Resources</button>
-                <br/>
-                <button> Edit Resources</button>
-            </div>
-        );
-    }
+  handleClick() {
+    this.props.handleLogin(false);
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Logout</button>
+        <div>
+          <h2>Info</h2>
+          <ul>
+            <li>Admin: {this.props.adminData && this.props.adminData.name}</li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }
 
+AdminPanel.propTypes = {
+  handleLogin: React.PropTypes.func,
+  adminData: React.PropTypes.shape({
+    name: React.PropTypes.string,
+  }),
+};
