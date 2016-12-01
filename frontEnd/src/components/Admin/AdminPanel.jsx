@@ -35,12 +35,3 @@ export default class AdminPanel extends React.Component {
 
 
 }
-
-AdminPanel.propTypes = {
-  handleLogin: React.PropTypes.func.isRequired,
-  adminData: React.PropTypes.shape({
-    id: React.PropTypes.number,
-    name: React.PropTypes.string,
-    username: React.PropTypes.string,
-  }),
-};

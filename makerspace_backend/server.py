@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
-from flask import jsonify
+from flask import Response
+from bson import ObjectId
 from bson.json_util import dumps
 import pymongo
 
@@ -14,11 +15,11 @@ conn = None
 db = None
 
 # Collections
-users = None
-equipment = None
-resources = None
-admins = None
-certifications = None
+users_collection = None
+equipment_collection = None
+resources_collection = None
+admins_collection = None
+certifications_collection = None
 
 
 @app.route('/v1/users', methods=['GET', 'POST'])
@@ -29,8 +30,9 @@ def users():
     '''
     if request.method == 'GET':
         # This should return all the users with populated equipments
-        queryResult = users.find()
-        return dumps({'users': [user for user in queryResult]})
+        queryResult = users_collection.find()
+        response_dict = dumps({'users': [user for user in queryResult]})
+        return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # Update the database to add new users
         # Relevant mongoDB API: insertOne
@@ -41,15 +43,25 @@ def users():
 
 @app.route('/v1/user/<string:id>', methods=['GET', 'PATCH'])
 def get_user(id):
-    # Gets a single user from the user database
-    return "Stand alone user " + id
+    '''
+    GET: Gets the user identified by the given vunet id
+    PATCH: Updates user data.
+    '''
+    if request.method == 'GET':
+        # This querie for a single user from the user database, returns None if no such user.
+        queryResult = users_collection.find_one({"vunetID": id})
+        return Response(dumps(queryResult), mimetype='application/json') \
+            if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
+    elif request.method == 'PATCH':
+        return "PATCH user"
 
 
 @app.route('/v1/equipment', methods=['GET', 'POST'])
 def equipment():
     if request.method == 'GET':
-        # returns all the equipment
-        return "GET equipment list"
+        queryResult = equipment_collection.find()
+        response_dict = dumps({'equipment': [equip for equip in queryResult]})
+        return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # updates the database to include the new equipment
         return "POST to the equiment list from the header"
@@ -58,14 +70,17 @@ def equipment():
 @app.route('/v1/equipment/<string:id>', methods=['GET'])
 def get_equipment(id):
     # returns a single element from the equipment database
-    return "GET equipement with id:" + id
+    queryResult = equipment_collection.find({'_id': ObjectId(id)})
+    return Response(dumps(queryResult), mimetype='application/json') \
+        if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
 
 
 @app.route('/v1/certifications', methods=['GET', 'POST'])
 def certifications():
     if request.method == 'GET':
-        # Return the whole list of certifications
-        return "GET certifications"
+        queryResult = certifications_collection.find()
+        response_dict = dumps({'certifications': [cert for cert in queryResult]})
+        return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # Update database with new added certification
         return "POST certifications"
@@ -89,10 +104,10 @@ if __name__ == "__main__":
     db = conn.makerspace_db
 
     # Collections
-    users = db.users
-    equipment = db.equipment
-    certifications = db.certifications
-    resources = db.resources
-    admins = db.admins
+    users_collection = db.users
+    equipment_collection = db.equipment
+    certifications_collection = db.certifications
+    resources_collection = db.resources
+    admins_collection = db.admins
 
     app.run()
