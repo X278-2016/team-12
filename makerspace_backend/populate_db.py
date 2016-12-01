@@ -62,7 +62,7 @@ toAdd["approvedFor"] = equip_id
 toAdd["certifications"] = cert_id
 
 currTime = calendar.timegm(time.gmtime())
-toAdd["useLog"] = [{"date": currTime, "machinesUsed" : [equip_id], "resourcesUsed": [{"_id": resource_id, "quantity": "10 grams"}]}]
+toAdd["useLog"] = [{"date": currTime, "machinesUsed" : [dict(equip_id)], "resourcesUsed": [{"_id": resource_id, "quantity": "10 grams"}]}]
 print 'First user being inserted: ' + str(toAdd)
 db.users.insert_one(toAdd)
 
