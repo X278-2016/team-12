@@ -41,4 +41,9 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM',
   },
+
+  // webpack-dev-server
+  devServer: {
+    historyApiFallback: true,
+  },
 };
