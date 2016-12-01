@@ -11,3 +11,7 @@ _mailinglist
 .tox
 .cache/
 .idea/
+makerspace_backend/Lib
+makerspace_backend/Include
+makerspace_backend/tcl
+makerspace_backend/Scripts

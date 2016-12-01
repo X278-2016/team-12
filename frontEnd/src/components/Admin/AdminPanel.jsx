@@ -9,22 +9,23 @@ export default class AdminPanel extends React.Component {
         return (
             <div>
                 <h1>Admin Panel</h1>
-                <button> Add Users </button>
+                <button> Add Users</button>
                 <br/>
-                <button> Edit Users </button>
+                <button> Edit Users</button>
                 <br/>
-                <button> Add Admins </button>
+                <button> Add Admins</button>
                 <br/>
-                <button> Edit Admins </button>
+                <button> Edit Admins</button>
                 <br/>
-                <button> Add Equipment </button>
+                <button> Add Equipment</button>
                 <br/>
-                <button> Edit Equipment </button>
+                <button> Edit Equipment</button>
                 <br/>
-                <button> Add Resources </button>
+                <button> Add Resources</button>
                 <br/>
-                <button> Edit Resources </button>
+                <button> Edit Resources</button>
             </div>
         );
     }
 }
+

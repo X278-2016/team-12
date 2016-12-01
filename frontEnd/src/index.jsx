@@ -17,5 +17,5 @@ ReactDOM.render(
       <Route path="currentPeople" component={HereRightNow} />
     </Route>
   </Router>,
-  document.getElementById('container')
+  document.getElementById('container'),
 );
