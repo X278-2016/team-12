@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "fullName": "Joseph Stahl",
       "email": "joseph.e.stahl@vanderbilt.edu",
       "major": "Computer Science",
@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
       "certifications": [
         {
@@ -27,21 +27,18 @@
       "vunetID": "stahlje",
       "useLog": [
         {
-          "date": "1478200662728",
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": [
-            {
-              "id": 11,
-              "quantity": "10 grams"
-            }
-          ]
+          "date": 1480442720971,
+          "machinesUsed": {
+            "1": false
+          },
+          "resourcesUsed": {
+            "11": 11
+          }
         }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Joseph Stahl 2",
       "email": "joseph.e.stahl2@vanderbilt.edu",
       "major": "Computer Science",
@@ -55,7 +52,7 @@
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
       "certifications": [
         {
@@ -64,19 +61,16 @@
         }
       ],
       "cardID": "=1234~5679",
-      "vunetID": "stahlje",
+      "vunetID": "stahlje2",
       "useLog": [
         {
-          "date": "1478200662728",
-          "machinesUsed": [
-            1
-          ],
-          "resourcesUsed": [
-            {
-              "id": 11,
-              "quantity": "10 grams"
-            }
-          ]
+          "date": 1480446566522,
+          "machinesUsed": {
+            "1": true
+          },
+          "resourcesUsed": {
+            "11": 45
+          }
         }
       ]
     }
@@ -102,7 +96,8 @@
   "resources": [
     {
       "id": 11,
-      "name": "Plastic spool"
+      "name": "Plastic spool",
+      "units": "grams"
     }
   ],
   "admins": [
