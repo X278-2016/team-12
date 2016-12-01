@@ -75,8 +75,9 @@ def get_equipment(id):
 @app.route('/v1/certifications', methods=['GET', 'POST'])
 def certifications():
     if request.method == 'GET':
-        # Return the whole list of certifications
-        return "GET certifications"
+        queryResult = certifications_collection.find()
+        response_dict = dumps({'certifications': [cert for cert in queryResult]})
+        return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # Update database with new added certification
         return "POST certifications"
