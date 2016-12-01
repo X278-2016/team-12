@@ -67,14 +67,14 @@ print 'First user being inserted: ' + str(toAdd)
 db.users.insert_one(toAdd)
 
 ######USER2 INSERT######################
-user1_id = ObjectId()
-toAdd = {"_id" : user1_id}
-toAdd["fullName"] = "Joseph Stahl"
-toAdd["email"] = "joseph.e.stahl@vanderbilt.edu"
-toAdd["major"] = "Computer Science"
+user2_id = ObjectId()
+toAdd = {"_id" : user2_id}
+toAdd["fullName"] = "Harrison Stall"
+toAdd["email"] = "harrison.r.stall@vanderbilt.edu"
+toAdd["major"] = "Computer Science / Mathematics"
 toAdd["school"] = "Engineering"
-toAdd["cardID"] = "=1234~5678"
-toAdd["vunetID"] = "stahlje"
+toAdd["cardID"] = "=987654321"
+toAdd["vunetID"] = "stallhr"
 toAdd["signedIn"] = True
 toAdd["picture"] = ""
 
