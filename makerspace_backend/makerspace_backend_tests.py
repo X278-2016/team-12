@@ -1,5 +1,5 @@
 import os
-import flaskr
+import makerspace_backend
 import unittest
 import tempfile
 
@@ -7,7 +7,7 @@ class MakerSpaceBackendTestCase(unittest.TestCase):
 
     def setUp(self):
         self.db_fd, makerspace_backend.app.config['DATABASE'] = tempfile.mkstemp()
-        flaskr.app.config['TESTING'] = True
+        makerspace_backend.app.config['TESTING'] = True
         self.app = makerspace_backend.app.test_client()
 
     def tearDown(self):
