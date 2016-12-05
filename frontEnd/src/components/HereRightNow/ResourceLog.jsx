@@ -99,7 +99,10 @@ export default class ResourceLog extends React.Component {
         {machineList}
         <h3>Resources used</h3>
         {resourceList}
-        <button onClick={this.handleSubmit}>Finish</button>
+        <button
+          onClick={this.handleSubmit}
+          className="btn btn-success"
+        >Finish</button>
       </div>
     );
   }

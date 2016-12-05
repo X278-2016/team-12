@@ -14,7 +14,7 @@ function App(props) {
       <br />
       <br />
       <div className="container">
-        <div className="col-lg-1 col-offset-6 centered">
+        <div className="col-md-6 centered">
           {props.children}
         </div>
       </div>

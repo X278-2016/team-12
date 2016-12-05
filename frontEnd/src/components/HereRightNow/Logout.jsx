@@ -39,7 +39,12 @@ export default class Logout extends React.Component {
 
   render() {
     if (!this.state.showResourceLog) {
-      return <button onClick={this.startLogoutProcess}>Sign out</button>;
+      return (
+        <button
+          onClick={this.startLogoutProcess}
+          className="btn btn-warning"
+        >Sign out</button>
+      );
     }
     return (
       <div>
