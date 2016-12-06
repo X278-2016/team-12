@@ -3,6 +3,7 @@ import makerspace_backend
 import unittest
 import tempfile
 
+
 class MakerSpaceBackendTestCase(unittest.TestCase):
 
     def setUp(self):
@@ -18,6 +19,7 @@ class MakerSpaceBackendTestCase(unittest.TestCase):
         resp = self.app.get('/v1/users')
         for property, value in vars(resp).iteritems():
             print property, ": ", value
+
 
 if __name__ == '__main__':
     unittest.main()

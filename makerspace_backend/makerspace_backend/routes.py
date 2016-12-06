@@ -6,7 +6,7 @@ from bson.json_util import dumps
 import pymongo
 
 # Flask app
-app = Flask(__name__) 
+app = Flask(__name__)
 
 # Connection
 conn = None
@@ -18,7 +18,7 @@ except pymongo.errors.Connection, e:
     print "Couldn't connect to the database"
     quit()
 
-# DATABASE 
+# DATABASE
 db = conn.makerspace_db
 
 # Collections
@@ -27,6 +27,7 @@ equipment_collection = db.equipment
 certifications_collection = db.certifications
 resources_collection = db.resources
 admins_collection = db.admins
+
 
 @app.route('/v1/users', methods=['GET', 'POST'])
 def users():
