@@ -64,7 +64,10 @@ export default class Home extends React.Component {
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button
+          onClick={this.handleSubmit}
+          className="btn btn-success"
+        >Submit</button>
         {infoDisplay}
       </div>
     );

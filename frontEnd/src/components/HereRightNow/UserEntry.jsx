@@ -12,7 +12,10 @@ export default class UserEntry extends React.Component {
 
   render() {
     return (
-      <button onClick={this.clickWrapper}>{this.props.user.fullName}</button>
+      <button
+        onClick={this.clickWrapper}
+        className="btn btn-default"
+      >{this.props.user.fullName}</button>
     );
   }
 }

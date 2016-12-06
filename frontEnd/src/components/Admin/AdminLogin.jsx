@@ -61,7 +61,10 @@ export default class AdminLogin extends React.Component {
           onSubmit={this.handleSubmit}
         />
         <br />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button
+          onClick={this.handleSubmit}
+          className="btn btn-default"
+        >Submit</button>
       </div>
     );
   }

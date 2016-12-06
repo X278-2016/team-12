@@ -58,6 +58,15 @@
           "resourcesUsed": {
             "11": 8
           }
+        },
+        {
+          "date": 1480887902468,
+          "machinesUsed": {
+            "1": true
+          },
+          "resourcesUsed": {
+            "11": 44
+          }
         }
       ]
     },
