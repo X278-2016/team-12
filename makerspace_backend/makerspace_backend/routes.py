@@ -6,21 +6,27 @@ from bson.json_util import dumps
 import pymongo
 
 # Flask app
-app = Flask(__name__)
+app = Flask(__name__) 
 
 # Connection
 conn = None
 
-# Database
-db = None
+try:
+    conn = pymongo.MongoClient()
+    print "Connected Succesfully"
+except pymongo.errors.Connection, e:
+    print "Couldn't connect to the database"
+    quit()
+
+# DATABASE 
+db = conn.makerspace_db
 
 # Collections
-users_collection = None
-equipment_collection = None
-resources_collection = None
-admins_collection = None
-certifications_collection = None
-
+users_collection = db.users
+equipment_collection = db.equipment
+certifications_collection = db.certifications
+resources_collection = db.resources
+admins_collection = db.admins
 
 @app.route('/v1/users', methods=['GET', 'POST'])
 def users():
@@ -89,25 +95,3 @@ def certifications():
 @app.route('/v1/user/<string:id>/addcerts', methods=['POST'])
 def add_certification_user(id):
     return "POST certificate in header to user " + id
-
-
-if __name__ == "__main__":
-    # try to connect
-    try:
-        conn = pymongo.MongoClient()
-        print "Connected Succesfully"
-    except pymongo.errors.Connection, e:
-        print "Couldn't connect to the database"
-        quit()
-
-    # db
-    db = conn.makerspace_db
-
-    # Collections
-    users_collection = db.users
-    equipment_collection = db.equipment
-    certifications_collection = db.certifications
-    resources_collection = db.resources
-    admins_collection = db.admins
-
-    app.run()
