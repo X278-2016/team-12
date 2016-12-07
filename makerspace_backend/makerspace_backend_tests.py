@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import os
 import makerspace_backend
 import unittest
