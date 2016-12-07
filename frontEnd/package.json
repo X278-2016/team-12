@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/helpers/browser.js test/*.spec.js test/*.spec.jsx",
-    "dev": "webpack-dev-server --progress --colors --inline -d --display-error-details --display-cached",
+    "dev": "webpack-dev-server --progress --colors -d --display-error-details",
     "backend-dev": "json-server --watch backend-testing/db.json",
     "start": "npm run dev"
   },

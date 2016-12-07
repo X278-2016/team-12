@@ -1,7 +1,11 @@
+const path = require('path');
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    filename: './dist/bundle.js',
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/dist/',
   },
 
   // sourcemaps
@@ -49,6 +53,7 @@ module.exports = {
   // webpack-dev-server
   devServer: {
     historyApiFallback: true,
-    inline: true,
+    // inline: true,
+    contentBase: __dirname,
   },
 };
