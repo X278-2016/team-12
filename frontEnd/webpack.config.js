@@ -40,10 +40,15 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+    cheerio: 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
   },
 
   // webpack-dev-server
   devServer: {
     historyApiFallback: true,
+    inline: true,
   },
 };
