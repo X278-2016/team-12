@@ -59,7 +59,7 @@ def execute_insertions():
     toAdd["picture"] = ""
 
     # These IDs come from the insertions above.
-    toAdd["approvedFor"] = equip_id
+    toAdd["approvedFor"] = [equip_id]
     toAdd["certifications"] = cert_id
 
     currTime = calendar.timegm(time.gmtime())
@@ -80,7 +80,7 @@ def execute_insertions():
     toAdd["picture"] = ""
 
     # These IDs come from the insertions above.
-    toAdd["approvedFor"] = equip_id
+    toAdd["approvedFor"] = [equip_id]
     toAdd["certifications"] = cert_id
 
     currTime = calendar.timegm(time.gmtime())
