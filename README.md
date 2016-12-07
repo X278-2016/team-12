@@ -1,4 +1,4 @@
-## Team 12
+### Team 12: Makerspace Check-in System
 
 - Meeting on Tuesday with Kevin
 
@@ -13,7 +13,6 @@ $ python server.py
 
 ### Technologies
 
-- React
-- jQuery
+- React.js
 - Flask
-- Mongo
+- MongoDB
