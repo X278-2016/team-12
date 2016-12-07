@@ -4,6 +4,7 @@ import unittest
 import tempfile
 import json
 
+
 class MakerSpaceBackendTestCase(unittest.TestCase):
 
     def setUp(self):
@@ -35,6 +36,7 @@ class MakerSpaceBackendTestCase(unittest.TestCase):
         expected_certs = ['Lasers']
         for cert in resp['certifications']:
             assert cert['name'] in expected_certs
+
 
 if __name__ == '__main__':
     unittest.main()
