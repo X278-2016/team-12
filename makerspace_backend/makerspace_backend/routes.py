@@ -29,6 +29,15 @@ resources_collection = db.resources
 admins_collection = db.admins
 
 
+def inflate(user):
+    user['approvedFor'] = [equipment_collection.find(
+        {'_id': ObjectId(id)}) for id in user['approvedFor']]
+
+    user['certifications'] = [certifications_collection.find(
+        {'_id': ObjectId(id)}) for id in user['certifications']]
+    return user
+
+
 @app.route('/v1/users', methods=['GET', 'POST'])
 def users():
     '''
@@ -38,7 +47,8 @@ def users():
     if request.method == 'GET':
         # This should return all the users with populated equipments
         queryResult = users_collection.find()
-        response_dict = dumps({'users': [user for user in queryResult]})
+        response_dict = dumps([inflate(user) for user in queryResult])
+
         return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # Update the database to add new users
@@ -55,10 +65,13 @@ def get_user(id):
     PATCH: Updates user data.
     '''
     if request.method == 'GET':
-        # This querie for a single user from the user database, returns None if no such user.
+        # This querie for a single user from the user database, returns None if
+        # no such user.
         queryResult = users_collection.find_one({"vunetID": id})
-        return Response(dumps(queryResult), mimetype='application/json') \
-            if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
+        return Response(dumps(inflate(queryResult)),
+                        mimetype='application/json') \
+            if queryResult is not None\
+            else Response(dumps(dict()), mimetype='application/json')
     elif request.method == 'PATCH':
         return "PATCH user"
 
@@ -67,7 +80,7 @@ def get_user(id):
 def equipment():
     if request.method == 'GET':
         queryResult = equipment_collection.find()
-        response_dict = dumps({'equipment': [equip for equip in queryResult]})
+        response_dict = dumps([equip for equip in queryResult])
         return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # updates the database to include the new equipment
@@ -79,14 +92,15 @@ def get_equipment(id):
     # returns a single element from the equipment database
     queryResult = equipment_collection.find({'_id': ObjectId(id)})
     return Response(dumps(queryResult), mimetype='application/json') \
-        if queryResult is not None else Response(dumps(dict()), mimetype='application/json')
+        if queryResult is not None \
+        else Response(dumps(dict()), mimetype='application/json')
 
 
 @app.route('/v1/certifications', methods=['GET', 'POST'])
 def certifications():
     if request.method == 'GET':
         queryResult = certifications_collection.find()
-        response_dict = dumps({'certifications': [cert for cert in queryResult]})
+        response_dict = dumps([cert for cert in queryResult])
         return Response(response_dict, mimetype='application/json')
     elif request.method == 'POST':
         # Update database with new added certification
