@@ -53,7 +53,7 @@ module.exports = {
   // webpack-dev-server
   devServer: {
     historyApiFallback: true,
-    // inline: true,
+    inline: true,
     contentBase: __dirname,
   },
 };
