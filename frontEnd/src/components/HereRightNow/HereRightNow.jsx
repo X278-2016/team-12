@@ -4,7 +4,6 @@ import md5 from 'md5';
 
 import UserInfoWindow from '../Home/UserInfoWindow';
 import UserEntry from './UserEntry';
-import MachinesCanUse from './MachinesCanUse';
 import Certifications from './Certifications';
 import Logout from './Logout';
 
@@ -66,8 +65,6 @@ export default class HereRightNow extends React.Component {
         <h3>User Info</h3>
         <img src={`http://gravatar.com/avatar/${md5email}`} alt="gravatar" />
         <UserInfoWindow user={this.state.userToDisplay} />
-        <h3>Machine Privileges</h3>
-        <MachinesCanUse user={this.state.userToDisplay} />
         <h3>Certifications</h3>
         <Certifications user={this.state.userToDisplay} />
         <Logout

@@ -35,11 +35,8 @@ export default class ResourceLog extends React.Component {
         this.setState({ possibleMachines: equipment });
         const newMachines = {};
         equipment.forEach((machine) => {
-          const newMachine = {
-            id: Number.parseInt(machine.id, 10),
-            used: false,
-          };
-          newMachines[machine.id] = newMachine;
+          const machineId = Number.parseInt(machine.id, 10);
+          newMachines[machineId] = false;
         });
         this.setState({ usedMachines: newMachines });
       });

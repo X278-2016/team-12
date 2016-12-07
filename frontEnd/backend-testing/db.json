@@ -19,90 +19,55 @@
       "picture": "",
       "certifications": [
         {
-          "id": 1,
-          "name": "Lasers"
+          "id": 3,
+          "name": "Vacuform",
+          "resources": [
+            67
+          ]
+        },
+        {
+          "id": 4,
+          "name": "3D printer",
+          "resources": [
+            19
+          ]
         }
       ],
       "cardID": "=1234~5678",
       "vunetID": "stahlje",
-      "useLog": [
-        {
-          "date": 1480442720971,
-          "machinesUsed": {
-            "1": false
-          },
-          "resourcesUsed": {
-            "11": 11
-          }
-        },
-        {
-          "date": 1480613104104,
-          "machinesUsed": {
-            "1": {
-              "id": 1,
-              "used": false
-            }
-          },
-          "resourcesUsed": {
-            "11": {
-              "id": 11,
-              "quantity": 0
-            }
-          }
-        },
-        {
-          "date": 1480613152281,
-          "machinesUsed": {
-            "1": true
-          },
-          "resourcesUsed": {
-            "11": 8
-          }
-        },
-        {
-          "date": 1480887902468,
-          "machinesUsed": {
-            "1": true
-          },
-          "resourcesUsed": {
-            "11": 44
-          }
-        }
-      ]
+      "useLog": []
     },
     {
       "id": "2",
-      "fullName": "Joseph Stahl 2",
-      "email": "joseph.e.stahl2@vanderbilt.edu",
-      "major": "Computer Science",
+      "fullName": "Harrison Stall",
+      "email": "harrison.r.stall@vanderbilt.edu",
+      "major": "Computer Science and Math",
       "school": "Engineering",
       "approvedFor": [
         {
-          "id": 1,
+          "id": 2,
           "name": "Laser cutter",
           "resources": [
             11
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
-      "certifications": [
-        {
-          "id": 1,
-          "name": "Lasers"
-        }
-      ],
+      "certifications": [],
       "cardID": "=1234~5679",
-      "vunetID": "stahlje2",
+      "vunetID": "stallhr",
       "useLog": [
         {
-          "date": 1480446566522,
+          "date": 1481146388965,
           "machinesUsed": {
-            "1": true
+            "1": false,
+            "2": false,
+            "3": true,
+            "4": false
           },
           "resourcesUsed": {
-            "11": 45
+            "11": 0
           }
         }
       ]
@@ -114,6 +79,27 @@
       "name": "Laser cutter",
       "resources": [
         11
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Table saw",
+      "resources": [
+        43
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vacuform",
+      "resources": [
+        67
+      ]
+    },
+    {
+      "id": 4,
+      "name": "3D printer",
+      "resources": [
+        19
       ]
     }
   ],

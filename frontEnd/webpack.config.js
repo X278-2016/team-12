@@ -1,7 +1,11 @@
+const path = require('path');
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    filename: './dist/bundle.js',
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/dist/',
   },
 
   // sourcemaps
@@ -40,10 +44,16 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+    cheerio: 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
   },
 
   // webpack-dev-server
   devServer: {
     historyApiFallback: true,
+    inline: true,
+    contentBase: __dirname,
   },
 };

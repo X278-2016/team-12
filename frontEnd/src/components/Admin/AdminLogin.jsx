@@ -54,7 +54,7 @@ export default class AdminLogin extends React.Component {
         />
         <br />
         <input
-          type="text"
+          type="password"
           placeholder="Enter your password"
           value={this.state.password}
           onChange={this.handleChangePassword}
