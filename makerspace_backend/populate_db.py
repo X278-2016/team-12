@@ -61,7 +61,7 @@ def execute_insertions():
 
     # These IDs come from the insertions above.
     toAdd["approvedFor"] = [equip_id]
-    toAdd["certifications"] = cert_id
+    toAdd["certifications"] = [cert_id]
 
     currTime = calendar.timegm(time.gmtime())
     toAdd["useLog"] = [{"date": currTime, "machinesUsed": [equip_id],
