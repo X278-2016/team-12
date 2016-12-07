@@ -4,7 +4,7 @@ import md5 from 'md5';
 
 import UserInfoWindow from '../Home/UserInfoWindow';
 import UserEntry from './UserEntry';
-import MachinesCanUse from './MachinesCanUse';
+import MachinesCanUse from '../Home/MachinesCanUse';
 import Certifications from './Certifications';
 import Logout from './Logout';
 
