@@ -36,5 +36,23 @@ class MakerSpaceBackendTestCase(unittest.TestCase):
         for cert in resp['certifications']:
             assert cert['name'] in expected_certs
 
+    def test_get_user(self):
+        resp = self.app.get('/v1/users')
+
+    def test_empty_db(self):
+        resp = self.app.get('/v1/users')
+
+    def test_skeleton(self):
+        resp = self.app.get('/v1/users')
+
+    def test_post_users(self):
+        resp = self.app.get('/v1/users')
+
+    def test_post_certs(self):
+        resp = self.app.get('/v1/users')
+
+    def test_post_equipment(self):
+        resp = self.app.get('/v1/users')
+
 if __name__ == '__main__':
     unittest.main()
