@@ -2,6 +2,8 @@ import * as React from 'react';
 import AdminLogin from './AdminLogin';
 import AdminPanel from './AdminPanel';
 
+// Not much in Admin yet. Just a sign in screen which will display AdminPanel if login is successful.
+// NOTE: this definitely needs a rewrite with an eye towards security--we've got plaintext passwords, no salting, etc.
 export default class Admin extends React.Component {
   constructor(props) {
     super(props);

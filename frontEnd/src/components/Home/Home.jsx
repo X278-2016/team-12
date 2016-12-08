@@ -3,6 +3,8 @@ import * as axios from 'axios';
 
 import UserInfoWindow from './UserInfoWindow';
 
+// Home page for signing in users.
+// Each time a user is signed in successfully, we'll display information about them
 export default class Home extends React.Component {
   constructor(props) {
     super(props);

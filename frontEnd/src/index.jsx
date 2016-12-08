@@ -8,6 +8,9 @@ import Admin from './components/Admin/Admin';
 import AdminPanel from './components/Admin/AdminPanel';
 import HereRightNow from './components/HereRightNow/HereRightNow';
 
+// Render the React Router within the `container` element in `index.html`.
+// history={browserHistory} is used to keep the URL and history in sync with our application,
+// since this normally would not occur (as technically everything happens on index.html)
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>

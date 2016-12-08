@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { IndexLink, Link } from 'react-router';
 
+// This is the main application--it's a navbar at the top
+// and a container for whatever page (component) is currently selected
 function App(props) {
   return (
     <div>

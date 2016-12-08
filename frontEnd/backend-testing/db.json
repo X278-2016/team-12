@@ -15,7 +15,7 @@
           ]
         }
       ],
-      "signedIn": true,
+      "signedIn": false,
       "picture": "",
       "certifications": [
         {
@@ -35,7 +35,20 @@
       ],
       "cardID": "=1234~5678",
       "vunetID": "stahlje",
-      "useLog": []
+      "useLog": [
+        {
+          "date": 1481220200151,
+          "machinesUsed": {
+            "1": false,
+            "2": false,
+            "3": true,
+            "4": true
+          },
+          "resourcesUsed": {
+            "11": 20
+          }
+        }
+      ]
     },
     {
       "id": "2",
@@ -52,7 +65,7 @@
           ]
         }
       ],
-      "signedIn": false,
+      "signedIn": true,
       "picture": "",
       "certifications": [],
       "cardID": "=1234~5679",

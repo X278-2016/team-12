@@ -7,6 +7,10 @@ import UserEntry from './UserEntry';
 import Certifications from './Certifications';
 import Logout from './Logout';
 
+// HereRightNow is a list of signed in users.
+// Each user is a button, which when clicked, will show information about that user
+// Buttons are created by UserEntry, which will have the username and a handleUserButtonClick function passed as props.
+// By having the UserEntry component handle button clicks, we ensure that the right user is displayed on clicks.
 export default class HereRightNow extends React.Component {
   static filterBySignedIn(users) {
     const signedIn = [];
